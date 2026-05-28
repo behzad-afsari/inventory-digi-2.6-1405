@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>انبار دیجی کالا</title>
+
+    <style>
+        /* body {direction: rtl; text-align: right; }
+        .tb { border-collapse: collapse; width:800px; }
+        .tb th, .tb td { padding: 5px; border: solid 1px #777; }
+        .tb th { background-color: lightblue; } */
+        #table{
+            margin: 0 10px 0 0;
+        }
+      </style>
+      <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <%r=0%>
+    <%less=0%>
+    <%more=0%>
+    <%notActive=0%>
+    <div id="table">
+    <%- include('menu') %>
+        <div class="tableFixHead">
+            <!-- <h1>لیست محصولات انبار</h1> -->
+            <table class="tb">
+                <tr>
+                    <th>ردیف</th>
+                    <!-- <th>گروه اصلی</th> -->
+                    <th>گروه فرعی</th>
+                    <th>نام کالا</th>
+                    <th>کد هلو</th>
+                    <th>dkpc</th>
+                    <th> تعداد خرید</th>
+                    <th> آخرین قیمت خرید</th>
+                    <th> آخرين تاريخ خريد</th>
+                    <th> تعداد فروش </th>
+                    <th> آخرين تاريخ فروش</th>
+                    <th> موجودی</th>
+                </tr>
+                <% result.map((item)=>{%>
+                    <tr>
+                        <td><%= r+=1 %></td>
+                        <td><%= item['گروه فرعي'] %></td>
+                        <td><%= item['نام كالا'] %></td>
+                        <td><%= item['كد كالا'] %></td>
+                        <td><%= item['مشخصات فني 1'] %></td>
+                        <td><%= item['جمع تعداد خريد'] %></td>
+                        <td><%= item['آخرين في خريد'] %></td>
+                        <td><%= item['آخرين تاريخ خريد'] %></td>
+                        <td><%= item['جمع تعداد فروش'] %></td>
+                        <td><%= item['آخرين تاريخ فروش'] %></td>
+                        <td><%= item['موجودي'] %></td>
+             <% }) %>
+                </table>
+            </div>
+        </div>
+    </body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>انبار دیجی کالا</title>
+
+    <style>
+        /* body {direction: rtl; text-align: right; }
+        .tb { border-collapse: collapse; width:800px; }
+        .tb th, .tb td { padding: 5px; border: solid 1px #777; }
+        .tb th { background-color: lightblue; } */
+        #table{
+            margin: 0 10px 0 0;
+        }
+      </style>
+      <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <%r=0%>
+    <div id="table">
+    <%- include('menu') %>
+        <div class="tableFixHead">
+            <!-- <h1>لیست محصولات انبار</h1> -->
+            <table class="tb">
+                <tr>
+                    <th>ردیف</th>
+                    <th>تاریخ</th>
+                    <th>ماهیت</th>
+                    <th>مشتری</th>
+                    <th>تعداد</th>
+                </tr>
+                <% result.map((item)=>{%>
+                    <tr>
+                        <td><%= r+=1 %></td>
+                        <td><%= item.date %></td>
+                        <td><%= item.type %></td>
+                        <td><%= item.client %></td>
+                        <td><%= item.count %></td>
+                        <!-- <td style="text-align: right;"><%= item.productName %></td> -->
+                        <!-- <td><%= item.holoo %></td> -->
+                        <!-- <td style="background-color: rgb(255, 212, 133);"><%= (item.salePrice-((item.salePrice*25)/100))-item.lastBuyPrice %></td> -->
+                        <td style="background-color: rgb(255, 255, 255);"><%= item.description %></td>
+
+                    </tr>
+                    <% }) %>
+                </table>
+            </div>
+        </div>
+    </body>
+
+</html>

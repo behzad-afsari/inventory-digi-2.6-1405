@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>hello</h1>
+    <h2 id="number">1000000</h2>
+    <button type="button" onclick="change()">chenge</button>
+    <br>
+    <input type="number" name="num3" id="num3">
+    <br>
+    <input type="text" name="num4" id="num4" value="99" >
+    <br>
+  </body>
+
+  <script>
+    function change() {
+      const x = document.querySelector("#number");
+      let num = x.textContent;
+      console.log(x);
+      console.log(num);
+      x.innerHTML= Number(num).toLocaleString()
+    }
+    // const num2 = num.textContent.toLocaleString("ar-EG");
+    // console.log(num2);
+
+    // console.log(num.textContent.toLocaleString());
+
+    // num.textContent = num.textContent.toLocaleString();
+  </script>
+</html>

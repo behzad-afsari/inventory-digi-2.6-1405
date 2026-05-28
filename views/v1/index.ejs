@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>انبار دیجی کالا</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <style>
+      #sub-groups-list ul li {
+        list-style: none;
+        margin: 5px;
+        padding: 5px;
+      }
+      #sub-groups-list ul li a {
+        padding: 5px;
+        border-radius: 3px;
+        background-color: rgb(226, 226, 226);
+        color: black;
+        min-width: 300px;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <%- include('menu') %>
+    <div id="body" style="margin: 20px;">
+      <h1>صفحه اصلی</h1>
+      <!-- <button type="button" onclick="DigiData()">Update Data</button> -->
+      <!-- <hr /> -->
+    </div>
+
+
+    <!-- <script type="module" src="../model/apps/digi-api.js"></script>
+    <script>
+      console.log();
+      // import fetchDataFromDigikalaAPI from '../model/apps/digi-api.js'
+      async function DigiData(){
+        const result = await fetchDataFromDigikalaAPI()
+        result?alert('Data Fetched') : alert('fail')
+      }
+    </script> -->
+  </body>
+</html>

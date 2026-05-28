@@ -1,0 +1,4 @@
+{
+    "typeOfInvoice": ["sale", "buy", "back_of_sale", "back_of_buy", "offline_sale","broken"],
+    "client": ["zibavash", "omid-noorhani", "bazar","offlineSale","broken","other"]
+}

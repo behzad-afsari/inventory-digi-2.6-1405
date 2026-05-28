@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Document</title>
+      <style>
+         .product-row {
+            margin: 10px;
+            background-color: bisque;
+            list-style: none;
+         }
+         .width-one {
+            background-color: rgb(255, 200, 200);
+            padding: 5px 20px;
+            border-radius: 5px;
+            /* margin: 5px 5px; */
+            /* width: 30px; */
+            min-width: 20px !important;
+            max-width: 30px !important;
+         }
+         #buyCount {
+            min-width: 10px;
+            /* background-color: rgb(255, 185, 185); */
+            /* border: none; */
+         }
+      </style>
+   </head>
+   <body>
+      <div id="product-list" class="product-list">
+         <form submit="logProductsinform" id="my_form">
+            <!-- <form id="my_form"> -->
+            <ul>
+               <li class="product-row">
+                  <!-- <div class="product-row"> -->
+                  <span class="width-one">DKPC</span>
+                  <span class="width-one">DKPC</span>
+                  <span class="width-one">ریمل اینفینیی</span>
+                  <span class="width-one"> buy count</span>
+                  <!-- </div> -->
+               </li>
+
+               <li class="product-row" id="product-row">
+                  <!-- <div class="product-row"> -->
+                  <span id="dkp" class="width-one">1111</span>
+                  <span id="dkpc" class="width-one">111111</span>
+                  <span id="name" class="width-one">ریمل اینفینیی</span>
+                  <label for="buyCount">buy count</label>
+                  <input type="text" name="buyCount" id="buyCount" />
+                  <!-- </div> -->
+               </li>
+               <li class="product-row" id="product-row">
+                  <span id="dkp" class="width-one">2222</span>
+                  <span id="dkpc" class="width-one">222222</span>
+                  <span id="name" class="width-one">ریمل اینفینیی</span>
+                  <label for="buyCount">buy count</label>
+                  <input type="text" name="buyCount" id="buyCount" />
+               </li>
+            </ul>
+            <button type="submit">submit</button>
+         </form>
+      </div>
+      <script src="script.js"></script>
+   </body>
+</html>

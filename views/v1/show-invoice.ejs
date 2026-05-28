@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>انبار دیجی کالا</title>
+
+    <style>
+        /* body {direction: rtl; text-align: right; }
+        .tb { border-collapse: collapse; width:800px; }
+        .tb th, .tb td { padding: 5px; border: solid 1px #777; }
+        .tb th { background-color: lightblue; } */
+        #table{
+            margin: 0 10px 0 0;
+        }
+      </style>
+      <link href="style.css" rel="stylesheet" type="text/css">
+      <style>
+            #title{
+                background-color: rgb(228, 228, 228);
+                padding: 10px;
+                border-radius: 10px;
+                margin-left: 20px;
+            }
+      </style>
+</head>
+
+<body>
+    <%r=0%>
+    <%less=0%>
+    <%more=0%>
+    <div id="table" >
+    <%- include('menu') %>
+    <div class="tableFixHead">
+    <!-- <h1>لیست محصولات انبار</h1> -->
+    <!-- <h3><span>تاریخ : </span><span class="invoice-head"><%= invoiceDetail.date %></span> نوع فاکتور: </span><span class="invoice-head"> <%= invoiceDetail.type %></span> مشتری:  <span class="invoice-head"><%= invoiceDetail.client %></span> تعداد کالا:  <span class="invoice-head"><%= invoiceDetail.count %></span> جمع فاکتور: <span class="invoice-head"><%= invoiceDetail.sumInvoice %></span>   <span class="invoice-head"><%= invoiceDetail.invoiceName %></span></h3> -->
+    <!-- <h3 style="direction: ltr;">تاریخ : <span class="invoice-head"><%= invoiceDetail.date %></span> نوع فاکتور: <span class="invoice-head"> <%= invoiceDetail.type %></span> مشتری:  <span class="invoice-head"><%= invoiceDetail.client %></span> تعداد کالا:  <span class="invoice-head"><%= invoiceDetail.count %></span> جمع فاکتور: <span class="invoice-head"><%= invoiceDetail.sumInvoice %></span>   <span class="invoice-head"><%= invoiceDetail.invoiceName %></span></h3> -->
+    <!-- <h3 style="direction: ltr;"> <%= invoiceDetail.invoiceName %>  -   تاریخ : <%= invoiceDetail.date %>  -   نوع فاکتور:  <%= invoiceDetail.type %>  -  مشتری:  <%= invoiceDetail.client %>  -  تعداد کالا:  <%= invoiceDetail.count %>  -  جمع فاکتور: <%= invoiceDetail.sumInvoice %> </h3> -->
+<h3 style="direction: ltr;"><%= invoiceDetail.invoiceName %></h3>
+<h3> <span id="title">تعداد کالا: <%= invoiceDetail.count %>   </span>  <span id="title"> جمع فاکتور: <span id="sum-invoice"><%= invoiceDetail.sumInvoice %></span></span></h3>
+        <table class="tb">
+            <tr>
+                <th>ردیف</th>
+                <th>نام کالا</th>
+                <th>کد تنوع</th>
+                <th>تعداد</th>
+                <th>قیمت</th>
+                <th>کد هلو</th>
+            </tr>
+            <% invoiceDetail.invoice.map((item)=>{%>
+                <tr>
+                    <td><%= r+=1 %></td>
+                    <td><%= item.name %></td>
+                    <td><%= item.dkpc %></td>
+                    <td><%= item.count %></td>
+                    <td><%= item.price %></td>
+                    <td><%= item.holoo %></td>
+                </tr>
+            <% }) %>
+                </table>
+            </div>
+        </div>
+        <script src="show-invoice.js"></script>
+    </body>
+
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>انبار دیجی کالا</title>
+
+    <style>
+        /* body {direction: rtl; text-align: right; }
+        .tb { border-collapse: collapse; width:800px; }
+        .tb th, .tb td { padding: 5px; border: solid 1px #777; }
+        .tb th { background-color: lightblue; } */
+        #table{
+            margin: 0 10px 0 0;
+        }
+      </style>
+      <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <%r=0%>
+    <%less=0%>
+    <%more=0%>
+    <div id="table">
+    <%- include('menu') %>
+        <div class="tableFixHead">
+            <!-- <h1>لیست محصولات انبار</h1> -->
+            <table class="tb">
+                <tr>
+                    <th>ردیف</th>
+                    <!-- <th>گروه اصلی</th> -->
+                    <th>گروه فرعی</th>
+                    <th>نام کالا</th>
+                    <th>dkp</th>
+                    <th>dkpc</th>
+                    <th>کد هلو</th>
+                    <!-- <th>ابتدای دوره</th> -->
+                    <th> تعداد خرید</th>
+                    <th> قیمت خرید</th>
+                    <!-- <th> برگشت از خرید</th> -->
+                    <th> تعداد فروش </th>
+                    <th> قیمت فروش</th>
+                    <th> حداقل قیمت</th>
+                    <th> قیمت مرحع</th>
+                    <!-- <th> سود </th>
+                    <th> % </th> -->
+                    <!-- <th> برگشت از فروش</th> -->
+                    <!-- <th> فروش حضوری</th> -->
+                    <!-- <th>معدوم</th> -->
+                    <th>انبار</th>
+                    <th>فعال</th>
+                    <th>دیجی</th>
+                    <th>اختلاف</th>
+                    <th>توضیحات</th>
+
+                </tr>
+                <% products.map((item)=>{%>
+                    <% if(item["subGroupe"] === subGRP.subgroupe || subGRP.subgroupe==="all") { %>
+                    <tr>
+                        <td><%= r+=1 %></td>
+                        <!-- <td><%= item.mainGroupe %></td> -->
+                        <td><%= item.subGroupe %></td>
+                        <td style="text-align: right;"><%= item.productName %></td>
+                        <!-- <td style="text-align: right;"><a href="https://seller.digikala.com/pwa/variant-management?filterSearchIn=search_term&filterSearchQuery=<%= item.dkpc %>"><%= item.productName %></a></td> -->
+                        <td><a href="https://seller.digikala.com/pwa/variant-management?filterSearchIn=search_term&filterSearchQuery=<%= item.dkpc %>"><%= item.dkp %></a></td>
+                        <td><a href="/dkpc-detail?dkpc=<%= item.dkpc %>"><%= item.dkpc %> </a></td>
+                        <td><%= item.holoo %></td>
+                        <!-- <td><%= item.beginningCount %></td> -->
+                        <td style="background-color: rgb(212, 234, 255);"><%= item.sumBuy %></td>
+                        <td style="background-color: rgb(212, 234, 255);"><%= Math.ceil(item.lastBuyPrice) %></td>
+                        <!-- <td><%= item.sumBackBuy %></td> -->
+                        <td style="background-color: rgb(255, 212, 212);"><%= item.sumsale %></td>
+                        <td style="background-color: rgb(255, 212, 212);"><%= item.salePrice %></td>
+                        <td style="background-color: rgb(255, 212, 212);"><%= Math.ceil(item.lastBuyPrice)+((Math.ceil(item.lastBuyPrice)*40)/100) %></td>
+                        <!-- <td style="background-color: rgb(255, 181, 181);"><%= item.salePrice-((item.salePrice * 25)/100) %></td> -->
+
+
+                        <!-- <td style="background-color: rgb(255, 133, 133);"><%= item.marjae %></td> -->
+                        <!-- marjae -->
+                        <% if(item.marjae < Math.ceil(item.lastBuyPrice)+((Math.ceil(item.lastBuyPrice)*40)/100)){ %>
+                                <td id="currentMarjae" style="background-color: rgb(255, 65, 65);"><%= item.marjae %></td>
+                        <%} else {%>
+                                <td id="currentMarjae" style="background-color: rgb(255, 133, 133);"><%= item.marjae %></td>
+                        <%}%>
+
+
+
+                        <!-- <td style="background-color: rgb(255, 212, 133);"><%= Math.ceil(item.salePrice-((item.salePrice * 25)/100)-item.lastBuyPrice) %></td>
+                        <td style="background-color: rgb(255, 212, 133);"><%= Math.ceil(((item.salePrice-((item.salePrice * 25)/100)-item.lastBuyPrice)*100)/(item.salePrice-((item.salePrice * 25)/100))) %></td> -->
+                        <!-- <td><%= item.sumBackOfSale %></td> -->
+                        <td style="background-color: rgb(173, 255, 173);font-weight: 700;"><%= item.stock %></td>
+                        <!-- <td><%= item.active?"فعال": "-" %></td> -->
+                        
+                            <% if(item.active){ %>
+                                    <td> فعال</td>
+                                <% } else{ %>
+                                    <td style='background-color:rgb(229 229 229);'> - </td>
+                            <%}%>
+                        
+                        <!-- <td><%= item.sumOfflineSale %></td> -->
+                        <!-- <td><%= item.broken %></td> -->
+                        <td style="color: red;"><%= item.stockDigiSite %></td>
+                        <!-- <td style="background-color: rgb(255, 0, 0); color: white;font-weight: 700;"><%= item.deffrenceDigi_Anbar %></td> -->
+                        <% if(item.deffrenceDigi_Anbar === 0) {%>
+                                <td ><%= item.deffrenceDigi_Anbar %></td>
+                                <!-- <td style="background-color: rgb(255, 255, 255);"><%= item.deffrenceDigi_Anbar %></td> -->
+                        <% } else if(item.deffrenceDigi_Anbar < 0 ){%>
+                                <td style="background-color: rgb(255, 0, 0); color: white;font-weight: 700;"><%= item.deffrenceDigi_Anbar %></td>
+                                <%less+=1%>
+                        <% } else if(item.deffrenceDigi_Anbar > 0 ){%>
+                            <td style="background-color: rgb(0, 174, 255); color: white;font-weight: 700;"><%= item.deffrenceDigi_Anbar %></td>
+                            <%more+=1%>
+                        <% }%>
+                        <td style="background-color: rgb(255, 255, 255);"><%= item.description %></td>
+
+                    </tr>
+                    <% } %>
+                    <% }) %>
+                    <!-- <tr style="background-color: red;font-size: 20px; font-weight: 700;"><td>محصولات مشکل دار aaa<td><%=less%></td></tr> -->
+                </table>
+                <h2 style="background-color: rgb(255, 198, 198);font-size: 20px; font-weight: 700;padding: 20px;">در سایت دیجی بیشتر از موجودی انبار : <%=less%></h2>
+                <h2 style="background-color: rgb(198, 227, 255);font-size: 20px; font-weight: 700;padding: 20px;">در سایت دیجی کمتر از موجودی انبار : <%=more%></h2>
+            </div>
+            <% console.log('less =', less) %>
+            <% console.log('more =', more) %>
+        </div>
+        <script src="script.js"></script>
+
+    </body>
+
+</html>

@@ -1,0 +1,25 @@
+<% if (item.salePrice < item.minSalePrice) { %>
+<% if (item.active) { %>
+<% lessThanMinPriceActive++ %>
+<td id="salePrice"
+    style="background-color: rgb(255, 0, 0); color:white; font-weight: 800;">
+    <%= item.salePrice.toLocaleString() %>
+</td>
+<% } else { %>
+<% lessThanMinPriceNotActive++ %>
+<td id="salePrice" style="background-color: rgb(255, 103, 103);">
+    <%= item.salePrice.toLocaleString() %>
+</td>
+
+
+<% } %>
+<% } else { %>
+<td id="salePrice" style="background-color: rgb(255, 212, 212);">
+    <%= item.salePrice.toLocaleString() %>
+</td>
+
+
+<% } %>
+<td id="minSalePrice" style="background-color: rgb(234, 152, 255);">
+    <%= parseInt(item.minSalePrice).toLocaleString() %>
+</td>

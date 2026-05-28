@@ -1,0 +1,52 @@
+[
+    {
+        "id": 1,
+        "name": "rimel_1",
+        "dkpc": "1001",
+        "firstBalance": 10,
+        "buy": [
+            {
+                "dateBuy": "1402-02-55",
+                "count": 5,
+                "price": 1000
+            }
+        ],
+        "sale": [
+            {
+                "dateSale": "1402-02-31",
+                "count": 1,
+                "price": 1000
+            },
+            {
+                "dateSale": "1402-02-32",
+                "count": 5,
+                "price": 1000
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "name": "rimel_2",
+        "dkpc": "1002",
+        "firstBalance": 20,
+        "buy": [
+            {
+                "dateBuy": "1402-02-55",
+                "count": 5,
+                "price": 2000
+            }
+        ],
+        "sale": [
+            {
+                "dateSale": "1402-02-31",
+                "count": 2,
+                "price": 2000
+            },
+            {
+                "dateSale": "1402-02-32",
+                "count": 5,
+                "price": 2000
+            }
+        ]
+    }
+]

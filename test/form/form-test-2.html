@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Document</title>
+      <style>
+         .product-row {
+            margin: 20px;
+            /* background-color: bisque; */
+            padding: 10px;
+            /* list-style: none; */
+         }
+         .element {
+            /* background-color: rgb(255, 200, 200); */
+            /* padding: 15px 20px; */
+            border-radius: 5px; 
+            margin: 5px 5px;
+            /* width: 30px; */
+            /* min-width: 20px !important; */
+            /* max-width: 30px !important; */
+         }
+         #buyCount {
+            min-width: 10px;
+            /* background-color: rgb(255, 185, 185); */
+            /* border: none; */
+         }
+         .mytable{
+            border: 2px solid black;
+         }
+         .mytable td{
+            border: 1px solid black;
+         }
+      </style>
+   </head>
+   <body>
+      <div id="product-list" class="product-list">
+         <form submit="logProductsinform" id="my_form">
+            <!-- <form id="my_form"> -->
+            <table class="mytable">
+               <tr class="product-row-head">
+                  <!-- <div class="product-row"> -->
+                  <th><span class="element">DKPC</span></th>
+                  <th><span class="element">DKPC</span></th>
+                  <th><span class="element">NAME</span></th>
+                  <th><span class="element">COUNT</span></th>
+                  <!-- </div> -->
+               </tr>
+
+               <tr class="product-row" id="product-row">
+                  <!-- <div class="product-row"> -->
+                  <td><span id="dkp" class="element">1111</span>
+                  <td><span id="dkpc" class="element">111111</span></td>
+                  <td><span id="name" class="element">ریمل اینفینیی</span></td>
+                  <!-- <td><label for="buyCount">buy count</label></td> -->
+                  <td><input type="text" name="buyCount" id="buyCount" /></td>
+                  <!-- </div> -->
+               </tr>
+               <tr class="product-row" id="product-row">
+                  <td><span id="dkp" class="element">2222</span></td>
+                  <td><span id="dkpc" class="element">222222</span></td>
+                  <td><span id="name" class="element">رژ جامد</span></td>
+                  <!-- <td><label for="buyCount">buy count</label></td> -->
+                  <td><input type="text" name="buyCount" id="buyCount" /></td>
+               </tr>
+            </table>
+            <button type="submit">submit</button>
+         </form>
+      </div>
+      <!-- <script src="axios.min.js"></script> -->
+      <script src="script.js"></script>
+   </body>
+</html>

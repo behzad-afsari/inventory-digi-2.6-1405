@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>انبار دیجی کالا</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+
+
+    <!-- <style>
+        .tb { border-collapse: collapse; width:800px; }
+        .tb th, .tb td { padding: 5px; border: solid 1px #777; }
+        .tb th { background-color: lightblue; }
+    </style> -->
+</head>
+
+<body>
+    <%- include('menu') %>
+    <div id="body">
+        <div id="sale">
+            <h1>لیست فاکتورهای فروش</h1>
+            <% r = 0 %>
+            <table class="tb tb-invoice">
+                <tr>
+                    <th>ردیف</th>
+                    <th>نام فاکتور</th>
+                </tr>
+                <% saleInvoices.map((item)=>{%>
+                    <tr>
+                        <td><%= r+=1 %></td>
+                        <td class="invoice-list"><a href="/invoice-detail?query=<%= item.invoiceName %>" > <%= item.invoiceName %></a></td>
+                        
+                    </tr>
+                    <%})%>
+           </table>
+        </div>
+
+        <div id="buyInvoices">
+            <h1>لیست فاکتورهای خرید</h1>
+            <% r = 0 %>
+            <table class="tb tb-invoice">
+                <tr>
+                    <th>ردیف</th>
+                    <th>نام فاکتور</th>
+                </tr>
+                <% buyInvoices.map((item)=>{%>
+                    <tr>
+                        <td><%= r+=1 %></td>
+                        <td class="invoice-list"><a href="/invoice-detail?query=<%= item.invoiceName %>"><%= item.invoiceName %></a></td>
+                        
+                    </tr>
+                    <%})%>
+           </table>
+        </div>
+
+        <div id="backOfSaleInvoices">
+            <h1>لیست فاکتورهای برگشت از فروش</h1>
+            <% r = 0 %>
+            <table class="tb tb-invoice">
+                <tr>
+                    <th>ردیف</th>
+                    <th>نام فاکتور</th>
+                </tr>
+                <% backOfSaleInvoices.map((item)=>{%>
+                    <tr>
+                        <td><%= r+=1 %></td>
+                        <td class="invoice-list"><a href="/invoice-detail?query=<%= item.invoiceName %>"><%= item.invoiceName %></a></td>
+                        
+                    </tr>
+                    <%})%>
+           </table>
+        </div>
+
+        <div id="backOfBuyInvoices">
+            <h1>لیست فاکتورهای برگشت از خرید</h1>
+            <% r = 0 %>
+            <table class="tb tb-invoice">
+                <tr>
+                    <th>ردیف</th>
+                    <th>نام فاکتور</th>
+                </tr>
+                <% backOfBuyInvoices.map((item)=>{%>
+                    <tr>
+                        <td><%= r+=1 %></td>
+                        <td class="invoice-list"><a href="/invoice-detail?query=<%= item.invoiceName %>" ><%= item.invoiceName %></a></td>
+                        
+                    </tr>
+                    <%})%>
+           </table>
+        </div>
+
+        <div id="offlineInvoices">
+            <h1>لیست فاکتورهای فروش حضوری</h1>
+            <% r = 0 %>
+            <table class="tb tb-invoice">
+                <tr>
+                    <th>ردیف</th>
+                    <th>نام فاکتور</th>
+                </tr>
+                <% offlineInvoices.map((item)=>{%>
+                    <tr>
+                        <td><%= r+=1 %></td>
+                        <td class="invoice-list"><a href="/invoice-detail?query=<%= item.invoiceName %>" ><%= item.invoiceName %></a></td>
+                        
+                    </tr>
+                    <%})%>
+           </table>
+        </div>
+
+        <div id="brokenInvoices">
+            <h1>لیست فاکتورهای ضایعات</h1>
+            <% r = 0 %>
+            <table class="tb tb-invoice">
+                <tr>
+                    <th>ردیف</th>
+                    <th>نام فاکتور</th>
+                </tr>
+                <% brokenInvoices.map((item)=>{%>
+                    <tr>
+                        <td><%= r+=1 %></td>
+                        <td class="invoice-list"><a href="/invoice-detail?query=<%= item.invoiceName %>" ><%= item.invoiceName %></a></td>
+                        
+                    </tr>
+                    <%})%>
+           </table>
+        </div>
+
+    </div>
+</body>
+
+</html>

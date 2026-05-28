@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" name="order_id" id="order_id" />
+    <button onclick="openPpage()">submit</button>
+    <a
+      href="https://seller.digikala.com/pwa/orders/ship-by-seller/parcel-creation/"
+      id="link"
+      target="_blank"
+      >link</a
+    >
+  </body>
+  <script>
+    function arabicToEnglish(str) {
+      const arabicNumerals = ["۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹"];
+      const englishNumerals = [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+      ];
+
+      return str
+        .split("")
+        .map((char) => {
+          const index = arabicNumerals.indexOf(char);
+          return index !== -1 ? englishNumerals[index] : char;
+        })
+        .join("");
+    }
+
+    function openPpage() {
+      const order_id_fa = document.getElementById("order_id").value;
+      const order_id_en = arabicToEnglish(order_id_fa);
+      console.log("++++++", order_id_en);
+      const link = document.getElementById("link");
+      link.href = link.href + order_id_en;
+      console.log(link);
+      console.log("======", document.getElementById("link").href);
+    }
+  </script>
+</html>

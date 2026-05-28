@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #tb th {
+            background-color: rgb(129, 188, 255);
+            padding: 10px;
+        }
+        #tb tr{
+            background-color: rgb(157, 255, 157);
+        }
+        #tb td{
+            /* background-color: rgb(229, 162, 255); */
+            padding: 10px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>table</h1>
+    <table id="tb">
+        <tr>
+          <th>Company</th>
+          <th>Contact</th>
+          <th>Country</th>
+        </tr>
+        <tr>
+          <td>Alfreds Futterkiste</td>
+          <td>Maria Anders</td>
+          <td>Germany</td>
+        </tr>
+        <!-- <tr onmouseover="color(this)" onmouseout="recolor(this)"> -->
+        <tr>
+          <td>Centro comercial Moctezuma</td>
+          <td>Francisco Chang</td>
+          <td>Mexico</td>
+        </tr>
+      </table> 
+
+    <script>
+        const tr = document.querySelectorAll('#tb tr')
+        // console.log(tr);
+        tr.forEach(item=>{
+            item.style.backgroundColor = "red";
+            console.log(item);
+
+            item.addEventListener("mouseover",function(){
+                // this.style.backgroundColor = "yellow";
+                this.style.opacity = "0.6";
+                // this.style.boxShadow = "1px 2px 3px black"
+                console.log(this);
+            })
+            item.addEventListener("mouseout",function(){
+                this.style.opacity = "1";
+                console.log(this);
+                // this.style.backgroundColor = "rgba(201, 76, 76, 0.3)";
+                // this.style.backgroundColor = "red";
+                // this.style.boxShadow = "none"
+            })
+            
+        })
+        // function color(x){
+        //     x.style.backgroundColor = 'green'
+        // }
+        // function recolor(x){
+        //     x.style.backgroundColor = 'red'
+        // }
+        // const tr2 = document.querySelectorAll('#tb tr')
+        // console.log(tr2);
+    </script>
+</body>
+</html>
