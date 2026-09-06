@@ -331,8 +331,8 @@ class Report {
 
       newItem.minPricePlusProfit =
         newItem.minPrice_list === 0
-          ? newItem.minPrice_holoo + (newItem.minPrice_holoo * 20) / 100
-          : newItem.minPrice_list + (newItem.minPrice_list * 20) / 100;
+          ? newItem.minPrice_holoo + (newItem.minPrice_holoo * 10) / 100
+          : newItem.minPrice_list + (newItem.minPrice_list * 10) / 100;
 
       DATA.push(newItem);
     });
